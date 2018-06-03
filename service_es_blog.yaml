@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: es-blog-service
+spec:
+  selector:
+    app: es-blog
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: blog-http

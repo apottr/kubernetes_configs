@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nametest
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nametest
+    spec:
+      containers:
+        - name: nametest
+          image: kubetest-go:v1
+          ports:
+            - containerPort: 5000

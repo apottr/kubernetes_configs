@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: es-blog
+  labels:
+    app: es-blog
+spec:
+  containers:
+    - name: blog-with-es
+      image: "blog-with-es:v1"
+      ports:
+        - name: blog-http
+          containerPort: 5000

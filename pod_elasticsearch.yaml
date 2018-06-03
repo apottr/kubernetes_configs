@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: elasticsearch
+  labels:
+    app: elasticsearch
+spec:
+  containers:
+    - name: elasticsearch
+      image: "docker.elastic.co/elasticsearch/elasticsearch:6.2.4"
+      env:
+        - name: discovery.type
+          value: single-node
+      volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: es-vol
+      ports:
+        - name: es-http
+          containerPort: 9200
+  volumes:
+    - name: es-vol
+      emptyDir: {}
